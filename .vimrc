@@ -8,6 +8,9 @@ set backspace=indent,eol,start
 colorscheme solarized
 set background=light
 
+set wildignore+=*.o,*.obj,.git,tmp/*,log/*
+
+set clipboard=unnamed
 
 set incsearch
 set hlsearch
@@ -23,8 +26,8 @@ set autoindent
 set nobackup
 set nowritebackup
 
-map <D-r> :SweetVimRspecRunFile<CR>
-map <D-R> :SweetVimRspecRunFocused<CR>
-map <M-D-r> :SweetVimRspecRunPrevious<CR>
+map <leader>r :w<CR> :!rspec %:p<CR>
+map <leader>R :w<CR> :exe "!rspec %:p:" . line(".")<CR>
 
 set shell=/bin/sh
+
