@@ -45,8 +45,12 @@ filetype plugin indent on
 set backspace=indent,eol,start
 
 " Use solarized colors
-colorscheme solarized
 set background=light
+colorscheme solarized
+
+hi NonText ctermbg=9
+hi Normal ctermbg=9
+hi CursorLine ctermbg=7*
 
 " Ignore common dumb files and directories
 set wildignore+=*.o,*.obj,.git,tmp/*,log/*
@@ -58,6 +62,9 @@ set clipboard=unnamed
 set incsearch
 " Highlight search match 
 set hlsearch
+
+" Toggle search highlight on/off
+map <silent> <leader>n :se invhlsearch<CR>h 
 
 " Display line number in gutter
 set number
@@ -81,10 +88,8 @@ map <leader>r :w<CR> :!rspec %:p<CR>
 " Run current focused spec with rspec
 map <leader>R :w<CR> :exe "!rspec %:p:" . line(".")<CR>
 
-
-" Toggle search  highlight on/off
-
-
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
 
+" Reload .vimrc when edited
+au! BufWritePost .vimrc source %
