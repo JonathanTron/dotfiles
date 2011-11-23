@@ -84,9 +84,9 @@ set cmdheight=2
 set showtabline=2
 
 " Run current file with rspec
-map <leader>r :w<CR> :!rspec %:p<CR>
+map <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
 " Run current focused spec with rspec
-map <leader>R :w<CR> :exe "!rspec %:p:" . line(".")<CR>
+map <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd %:p:" . line(".")<CR>
 
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
