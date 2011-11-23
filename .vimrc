@@ -84,9 +84,16 @@ set cmdheight=2
 set showtabline=2
 
 " Run current file with rspec
-map <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
+nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
+
 " Run current focused spec with rspec
-map <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd %:p:" . line(".")<CR>
+nmap <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd %:p:" . line(".")<CR>
+
+" Close current buffer but not the splited window
+nmap <leader>d :b#<bar>bd#<CR>
+
+" Auto flush Command-T
+nmap <leader>t :CommandTFlush<CR>:CommandT<CR>
 
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
