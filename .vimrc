@@ -95,6 +95,15 @@ nmap <leader>d :b#<bar>bd#<CR>
 " Auto flush Command-T
 nmap <leader>t :CommandTFlush<CR>:CommandT<CR>
 
+" Run current file with spinach 
+nmap <leader>s :w<CR>:!clear<CR>:!spinach %:p<CR>
+
+" Run current focused spec with spinach
+nmap <leader>S :w<CR>:!clear<CR>:exe "!spinach %:p:" . line(".")<CR>
+
+" Ruby syntax checking
+nmap <silent> <leader>v :w<CR>:echomsg system("ruby -c " . expand("%:p") . " \| head -1")<CR>
+
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
 
