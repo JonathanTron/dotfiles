@@ -104,6 +104,11 @@ nmap <leader>S :w<CR>:!clear<CR>:exe "!spinach %:p:" . line(".")<CR>
 " Ruby syntax checking
 nmap <leader>v :w<CR>:echomsg split(system("ruby -Wc " . expand("%")), "\n")[0]<CR>
 
+
+" move the current line up or down
+nmap <C-j> :m+<CR>
+nmap <C-k> :m-2<CR>
+
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
 
