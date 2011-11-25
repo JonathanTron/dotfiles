@@ -102,7 +102,7 @@ nmap <leader>s :w<CR>:!clear<CR>:!spinach %:p<CR>
 nmap <leader>S :w<CR>:!clear<CR>:exe "!spinach %:p:" . line(".")<CR>
 
 " Ruby syntax checking
-nmap <silent> <leader>v :w<CR>:echomsg system("ruby -c " . expand("%:p") . " \| head -1")<CR>
+nmap <leader>v :w<CR>:echomsg split(system("ruby -Wc " . expand("%")), "\n")[0]<CR>
 
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
