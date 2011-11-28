@@ -109,6 +109,9 @@ nmap <leader>v :w<CR>:echomsg split(system("ruby -Wc " . expand("%")), "\n")[0]<
 nmap <C-j> :m+<CR>
 nmap <C-k> :m-2<CR>
 
+" do not hard wrap at textwidth
+set fo=cq
+
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
 
