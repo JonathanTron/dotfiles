@@ -23,7 +23,7 @@ get_bundle mileszs ack.vim
 #get_bundle pangloss vim-javascript
 #get_bundle tpope vim-bundler
 get_bundle tpope vim-cucumber
-#get_bundle tpope vim-endwise
+get_bundle tpope vim-endwise
 get_bundle tpope vim-fugitive
 get_bundle tpope vim-git
 get_bundle tpope vim-haml
