@@ -74,6 +74,9 @@ set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 
+set list
+set listchars=tab:‣\ ,eol:¬
+
 " Highlight current line
 set cursorline
 
@@ -111,6 +114,9 @@ nmap <C-k> :m-2<CR>
 
 " do not hard wrap at textwidth
 set fo=cq
+
+" Some abbreviations
+ab std $stdout.puts
 
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
