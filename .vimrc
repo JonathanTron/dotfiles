@@ -32,10 +32,10 @@ else
 endif
 
 " show the cursor position all the time
-set ruler   
+set ruler
 
 " display incomplete commands
-set showcmd   
+set showcmd
 
 " Syntax highlighting
 syntax on
@@ -60,11 +60,11 @@ set clipboard=unnamed
 
 " Use incremental searching
 set incsearch
-" Highlight search match 
+" Highlight search match
 set hlsearch
 
 " Toggle search highlight on/off
-map <silent> <leader>n :se invhlsearch<CR>h 
+map <silent> <leader>n :se invhlsearch<CR>h
 
 " Display line number in gutter
 set number
@@ -98,7 +98,7 @@ nmap <leader>d :b#<bar>bd#<CR>
 " Auto flush Command-T
 nmap <leader>t :CommandTFlush<CR>:CommandT<CR>
 
-" Run current file with spinach 
+" Run current file with spinach
 nmap <leader>s :w<CR>:!clear<CR>:!spinach %:p<CR>
 
 " Run current focused spec with spinach
@@ -107,6 +107,8 @@ nmap <leader>S :w<CR>:!clear<CR>:exe "!spinach %:p:" . line(".")<CR>
 " Ruby syntax checking
 nmap <leader>v :w<CR>:echomsg split(system("ruby -Wc " . expand("%")), "\n")[0]<CR>
 
+" Strip trailing spaces
+nmap <silent> <F4> :let l=line(".")<Bar>:let c=col(".")<Bar>let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:call cursor(l, c)<CR>
 
 " move the current line up or down
 nmap <C-j> :m+<CR>
