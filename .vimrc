@@ -53,7 +53,7 @@ hi Normal ctermbg=9
 hi CursorLine ctermbg=7*
 
 " Ignore common dumb files and directories
-set wildignore+=*.o,*.obj,.git,tmp/*,log/*,*.gif,*.png,*.jpg,*.jpeg,*.svg,*.ico,*.bmp,public/assets/*
+set wildignore+=.DS_Store,*.o,*.obj,.git,tmp/*,log/*,*.gif,*.png,*.jpg,*.jpeg,*.svg,*.ico,*.bmp,public/assets/*
 
 " Use system clipboard
 set clipboard=unnamed
