@@ -109,3 +109,8 @@ set shell=/bin/sh
 
 " Reload .vimrc when edited
 au! BufWritePost .vimrc source %
+
+" Read .vimrc.local if present
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
