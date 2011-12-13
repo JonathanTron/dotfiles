@@ -4,6 +4,9 @@ call pathogen#infect()
 " " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Defaults to utf-8
+set encoding=utf-8
+
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
@@ -41,6 +44,8 @@ set showcmd
 syntax on
 filetype plugin indent on
 
+set foldmethod=manual
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -69,6 +74,9 @@ map <silent> <leader>n :se invhlsearch<CR>h
 " Display line number in gutter
 set number
 
+" Uncomment to display number in gutter relatively to carret position
+"set relativenumber
+
 " Use ruby common indentation 2 spaces
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
@@ -85,6 +93,15 @@ set cmdheight=2
 
 " Always show tab bar
 set showtabline=2
+
+" Alert do not generate sound
+set visualbell
+
+" Locally we can send lots of chars at once
+set ttyfast
+
+" Visually display the 80th column
+set colorcolumn=80
 
 " Run current file with rspec
 nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
