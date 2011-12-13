@@ -103,6 +103,28 @@ set ttyfast
 " Visually display the 80th column
 set colorcolumn=80
 
+" do not hard wrap at textwidth
+set fo=cq
+
+" Taken from Mislav's vimfiles
+" https://github.com/mislav/vimfiles/blob/master/vimrc
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  " Start the status line
+  set statusline=%f\ %m\ %r
+
+  " Add fugitive
+  set statusline+=%{fugitive#statusline()}
+
+  " Finish the statusline
+  set statusline+=Line:%l/%L[%p%%]
+  set statusline+=Col:%v
+  set statusline+=Buf:#%n
+  set statusline+=[%b][0x%B]
+endif
+
+let g:CommandTMaxHeight=20
 " Run current file with rspec
 nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
 
@@ -159,9 +181,6 @@ function! PromoteToLet()
 endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
-
-" do not hard wrap at textwidth
-set fo=cq
 
 " Some abbreviations
 ab std $stdout.puts
