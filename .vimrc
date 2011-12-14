@@ -124,12 +124,14 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
+" Limit CommandT to 20 files
 let g:CommandTMaxHeight=20
+
 " Run current file with rspec
 nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
 
 " Run current focused spec with rspec
-nmap <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd %:p:" . line(".")<CR>
+nmap <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd " . expand("%:p") . ":" . line(".")<CR>
 
 " Close current buffer but not the splited window
 nmap <leader>d :b#<bar>bd#<CR>
