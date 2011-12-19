@@ -38,5 +38,6 @@ get_bundle duskhacker sweet-rspec-vim
 get_bundle altercation vim-colors-solarized
 get_bundle vim-scripts Command-T
 get_bundle vim-scripts Rename
+get_bundle tomtom tcomment_vim
 
 vim -c 'call pathogen#helptags()|q'
