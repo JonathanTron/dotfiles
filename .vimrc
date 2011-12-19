@@ -184,6 +184,8 @@ endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
 
+noremap <Del> "_dl
+
 " Some abbreviations
 ab std $stdout.puts
 
