@@ -39,5 +39,6 @@ get_bundle altercation vim-colors-solarized
 get_bundle vim-scripts Command-T
 get_bundle vim-scripts Rename
 get_bundle tomtom tcomment_vim
+get_bundle Lokaltog vim-powerline
 
 vim -c 'call pathogen#helptags()|q'
