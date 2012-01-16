@@ -4,6 +4,9 @@ call pathogen#infect()
 " " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Set powerline theme to solarized
+let g:Powerline_theme = 'solarized'
+
 " Defaults to utf-8
 set encoding=utf-8
 
@@ -185,6 +188,7 @@ endfunction
 :map <leader>p :PromoteToLet<cr>
 
 noremap <Del> "_dl
+vmap <F3> :s/\[:\([^\]]*\)\]/["\1"]/<cr>
 
 " Some abbreviations
 ab std $stdout.puts
