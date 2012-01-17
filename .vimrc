@@ -4,6 +4,9 @@ call pathogen#infect()
 " " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Explicitly tell vim that the terminal has 256 colors
+set t_Co=256 
+
 " Set powerline theme to solarized
 let g:Powerline_theme = 'solarized'
 
@@ -56,9 +59,9 @@ set backspace=indent,eol,start
 set background=light
 colorscheme solarized
 
-hi NonText ctermbg=9
-hi Normal ctermbg=9
-hi CursorLine ctermbg=7*
+hi NonText ctermbg=15
+hi Normal ctermbg=15
+hi CursorLine ctermbg=7
 
 " Ignore common dumb files and directories
 set wildignore+=.DS_Store,*.o,*.obj,.git,tmp/*,log/*,*.gif,*.png,*.jpg,*.jpeg,*.svg,*.ico,*.bmp,public/assets/*
