@@ -9,6 +9,7 @@ set t_Co=256
 
 " Set powerline theme to solarized
 let g:Powerline_theme = 'solarized'
+let g:Powerline_symbols = 'unicode'
 
 " Defaults to utf-8
 set encoding=utf-8
