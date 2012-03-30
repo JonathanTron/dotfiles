@@ -7,8 +7,7 @@ set nocompatible
 " Explicitly tell vim that the terminal has 256 colors
 set t_Co=256 
 
-" Set powerline theme to solarized
-let g:Powerline_theme = 'solarized'
+" Set powerline symbols to use unicode char
 let g:Powerline_symbols = 'unicode'
 
 " Defaults to utf-8
