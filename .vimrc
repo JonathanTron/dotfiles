@@ -247,6 +247,7 @@ nnoremap <leader><leader> <c-^>
 
 noremap <Del> "_dl
 vmap <F3> :s/\[:\([^\]]*\)\]/["\1"]/<cr>
+imap <F2> save_and_open_page
 
 " Some abbreviations
 ab std $stdout.puts
