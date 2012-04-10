@@ -5,7 +5,7 @@ call pathogen#infect()
 set nocompatible
 
 " Explicitly tell vim that the terminal has 256 colors
-set t_Co=256 
+set t_Co=256
 
 " Set powerline symbols to use unicode char
 let g:Powerline_symbols = 'unicode'
@@ -50,7 +50,11 @@ set showcmd
 syntax on
 filetype plugin indent on
 
-set foldmethod=manual
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -75,7 +79,7 @@ set incsearch
 set hlsearch
 
 " Toggle search highlight on/off
-map <silent> <leader>n :se invhlsearch<CR>h
+" map <silent> <leader>n :se invhlsearch<CR>h
 
 " Display line number in gutter
 set number
@@ -134,10 +138,10 @@ endif
 let g:CommandTMaxHeight=20
 
 " Run current file with rspec
-nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
+" nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
 
 " Run current focused spec with rspec
-nmap <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd " . expand("%:p") . ":" . line(".")<CR>
+" nmap <leader>R :w<CR>:!clear<CR>:exe "!rspec -fd " . expand("%:p") . ":" . line(".")<CR>
 
 " Close current buffer but not the splited window
 nmap <leader>d :b#<bar>bd#<CR>
@@ -176,19 +180,70 @@ inoremap <s-tab> <c-n>
 
 " Taken from Gary Bernhardt
 " https://github.com/garybernhardt/dotfiles/master/.vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'))
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PROMOTE VARIABLE TO RSPEC LET
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! PromoteToLet()
   :normal! dd
   " :exec '?^\s*it\>'
   :normal! P
   :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
   :normal ==
-  " :normal! <<
-  " :normal! ilet(:
-  " :normal! f 2cl) {
-  " :normal! A }
 endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SWITCH BETWEEN TEST AND PRODUCTION CODE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenTestAlternate()
+  let new_file = AlternateForCurrentFile()
+  exec ':e ' . new_file
+endfunction
+function! AlternateForCurrentFile()
+  let current_file = expand("%")
+  let new_file = current_file
+  let in_spec = match(current_file, '^spec/') != -1
+  let going_to_spec = !in_spec
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1
+  if going_to_spec
+    if in_app
+      let new_file = substitute(new_file, '^app/', '', '')
+    end
+    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    let new_file = 'spec/' . new_file
+  else
+    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    let new_file = substitute(new_file, '^spec/', '', '')
+    if in_app
+      let new_file = 'app/' . new_file
+    end
+  endif
+  return new_file
+endfunction
+nnoremap <leader>. :call OpenTestAlternate()<cr>
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
+" Can't be bothered to understand ESC vs <c-c> in insert mode
+imap <c-c> <esc>
+" Clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+nnoremap <leader><leader> <c-^>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End of Gary Bernhardt awesomeness
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 noremap <Del> "_dl
 vmap <F3> :s/\[:\([^\]]*\)\]/["\1"]/<cr>

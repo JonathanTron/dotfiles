@@ -40,5 +40,7 @@ get_bundle vim-scripts Command-T
 get_bundle vim-scripts Rename
 get_bundle tomtom tcomment_vim
 get_bundle Lokaltog vim-powerline
+get_bundle nathanaelkane vim-indent-guides
+get_bundle skalnik vim-vroom
 
 vim -c 'call pathogen#helptags()|q'
