@@ -18,7 +18,7 @@ get_bundle() {
 }
 
 get_bundle kchmck vim-coffee-script
-#get_bundle leshill vim-json
+get_bundle leshill vim-json
 get_bundle mileszs ack.vim
 get_bundle pangloss vim-javascript
 #get_bundle tpope vim-bundler
@@ -45,5 +45,6 @@ get_bundle skalnik vim-vroom
 get_bundle ervandew supertab
 get_bundle scrooloose syntastic
 get_bundle kien ctrlp.vim
+get_bundle gregsexton gitv
 
 vim -c 'call pathogen#helptags()|q'
