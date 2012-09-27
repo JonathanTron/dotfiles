@@ -43,5 +43,7 @@ get_bundle Lokaltog vim-powerline
 get_bundle nathanaelkane vim-indent-guides
 get_bundle skalnik vim-vroom
 get_bundle ervandew supertab
+get_bundle scrooloose syntastic
+get_bundle kien ctrlp.vim
 
 vim -c 'call pathogen#helptags()|q'

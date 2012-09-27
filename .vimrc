@@ -79,7 +79,7 @@ set incsearch
 set hlsearch
 
 " Toggle search highlight on/off
-" map <silent> <leader>n :se invhlsearch<CR>h
+map <silent> <leader>n :se invhlsearch<CR>h
 
 " Display line number in gutter
 set number
@@ -165,34 +165,24 @@ nmap <silent> <F4> :let l=line(".")<Bar>:let c=col(".")<Bar>let _s=@/<Bar>:%s/\s
 nmap <C-j> :m+<CR>
 nmap <C-k> :m-2<CR>
 
+" Set supertab options
+let g:SuperTabLongestEnhanced=1
+
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://www.vim.org/tips/tip.php?tip_id=102)
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     endif
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <s-tab> <c-n>
 
 " Taken from Gary Bernhardt
 " https://github.com/garybernhardt/dotfiles/master/.vimrc
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'))
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>n :call RenameFile()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PROMOTE VARIABLE TO RSPEC LET
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -239,18 +229,24 @@ imap <c-l> <space>=><space>
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 " Clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
+" :nnoremap <CR> :nohlsearch<cr>
 nnoremap <leader><leader> <c-^>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of Gary Bernhardt awesomeness
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Syntastic active/passive config
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['haml', 'cucumber'] }
 
 noremap <Del> "_dl
 vmap <F3> :s/\[:\([^\]]*\)\]/["\1"]/<cr>
 imap <F2> save_and_open_page
 
 " Some abbreviations
-ab std $stdout.puts
+ab stdo $stdout.puts
+ab stde $stderr.puts
 
 " Use sh so .profile is read (loading rvm correctly)
 set shell=/bin/sh
