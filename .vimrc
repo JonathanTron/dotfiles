@@ -234,6 +234,21 @@ nnoremap <leader><leader> <c-^>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of Gary Bernhardt awesomeness
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+" Cucumber table alignment from https://gist.github.com/287147
+"""
+" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+nnoremap <F5> :call <SID>align()<CR>
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
 
 " Syntastic active/passive config
 let g:syntastic_mode_map = { 'mode': 'active',

@@ -46,5 +46,6 @@ get_bundle ervandew supertab
 get_bundle scrooloose syntastic
 get_bundle kien ctrlp.vim
 get_bundle scrooloose nerdtree
+get_bundle godlygeek tabular
 
 vim -c 'call pathogen#helptags()|q'
