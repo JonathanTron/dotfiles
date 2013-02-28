@@ -138,7 +138,7 @@ endif
 let g:CommandTMaxHeight=20
 
 " Use 'the silver searcher' instead of ack in Ack.vim
-let g:ackprg='ag —nogroup —nocolor —column'
+let g:ackprg='ag --nogroup --nocolor --column'
 
 " Run current file with rspec
 " nmap <leader>r :w<CR>:!clear<CR>:!rspec -fd %:p<CR>
