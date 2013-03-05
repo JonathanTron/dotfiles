@@ -256,7 +256,7 @@ endfunction
 " Syntastic active/passive config
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['haml', 'cucumber'] }
+                           \ 'passive_filetypes': ['haml', 'cucumber', 'c'] }
 
 noremap <Del> "_dl
 vmap <F3> :s/\[:\([^\]]*\)\]/["\1"]/<cr>
