@@ -44,6 +44,8 @@ get_bundle kien ctrlp.vim
 get_bundle gregsexton gitv
 get_bundle scrooloose nerdtree
 get_bundle godlygeek tabular
+get_bundle slim-template vim-slim
+get_bundle nono vim-handlebars
 get_bundle airblade vim-gitgutter
 
 vim -c 'call pathogen#helptags()|q'

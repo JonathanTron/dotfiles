@@ -261,6 +261,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 noremap <Del> "_dl
 vmap <F3> :s/\[:\([^\]]*\)\]/["\1"]/<cr>
 imap <F2> save_and_open_page
+imap <F5> save_and_open_page_screenshot
 
 " Some abbreviations
 ab stdo $stdout.puts
