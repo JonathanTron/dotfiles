@@ -47,5 +47,6 @@ get_bundle godlygeek tabular
 get_bundle slim-template vim-slim
 get_bundle nono vim-handlebars
 get_bundle airblade vim-gitgutter
+get_bundle fatih vim-go
 
 vim -c 'call pathogen#helptags()|q'
