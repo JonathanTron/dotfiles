@@ -49,5 +49,6 @@ get_bundle nono vim-handlebars
 get_bundle airblade vim-gitgutter
 get_bundle fatih vim-go
 get_bundle tpope vim-dispatch
+get_bundle elixir-lang vim-elixir
 
 vim -c 'call pathogen#helptags()|q'
