@@ -35,7 +35,7 @@ get_bundle duskhacker sweet-rspec-vim
 get_bundle altercation vim-colors-solarized
 get_bundle vim-scripts Rename
 get_bundle tomtom tcomment_vim
-get_bundle Lokaltog vim-powerline
+#get_bundle Lokaltog vim-powerline
 get_bundle nathanaelkane vim-indent-guides
 get_bundle skalnik vim-vroom
 get_bundle ervandew supertab
@@ -50,5 +50,6 @@ get_bundle airblade vim-gitgutter
 get_bundle fatih vim-go
 get_bundle tpope vim-dispatch
 get_bundle elixir-lang vim-elixir
+get_bundle bling vim-airline
 
 vim -c 'call pathogen#helptags()|q'

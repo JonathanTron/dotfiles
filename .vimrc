@@ -8,7 +8,11 @@ set nocompatible
 set t_Co=256
 
 " Set powerline symbols to use unicode char
-let g:Powerline_symbols = 'unicode'
+"let g:Powerline_symbols = 'unicode'
+
+" Configure airline 
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Defaults to utf-8
 set encoding=utf-8
