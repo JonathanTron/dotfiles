@@ -18,7 +18,6 @@ get_bundle() {
 }
 
 get_bundle kchmck vim-coffee-script
-#get_bundle leshill vim-json
 get_bundle mileszs ack.vim
 get_bundle pangloss vim-javascript
 get_bundle tpope vim-cucumber
@@ -35,7 +34,6 @@ get_bundle duskhacker sweet-rspec-vim
 get_bundle altercation vim-colors-solarized
 get_bundle vim-scripts Rename
 get_bundle tomtom tcomment_vim
-#get_bundle Lokaltog vim-powerline
 get_bundle nathanaelkane vim-indent-guides
 get_bundle skalnik vim-vroom
 get_bundle ervandew supertab
